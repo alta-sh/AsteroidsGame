@@ -12,7 +12,7 @@ public class Rocket : MonoBehaviour
     [SerializeField]
     public GameObject bulletObject;
     public int health = 5;
-
+    public bool isAlive = true;
     void Start()
     {
         rigidbody = gameObject.GetComponent<Rigidbody2D>();
@@ -22,12 +22,16 @@ public class Rocket : MonoBehaviour
     void Update()
     {
         HandleInput();
+    }
+    public void DecreaseHealth()
+    {
+        health--;
         if (health <= 0)
         {
+            isAlive = false;
             Destroy(gameObject);
         }
     }
-
 
     private void HandleInput()
     {

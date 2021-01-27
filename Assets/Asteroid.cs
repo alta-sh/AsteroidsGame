@@ -45,25 +45,13 @@ public class Asteroid : MonoBehaviour
                     miniAsteroids.GetComponent<Asteroid>().isBreakable = false;
                 }
             }
-            
-            if (collision.tag == "Player")
-            {
-                GameObject.FindGameObjectWithTag("Player").GetComponent<Rocket>().health--;
-                StartCoroutine(PlayerHitEffect());
-            }
             Destroy(this.gameObject);
         }
-    }
 
-    private string PlayerHitEffect()
-    {
-        int i = 3;
-        while(i >= 0)
+        if (collision.tag == "Rocket")
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<BoxCollider>().enabled = false;
-
+            GameObject.FindGameObjectWithTag("Rocket").GetComponent<Rocket>().DecreaseHealth();
+            Destroy(this.gameObject);
         }
-        GameObject.FindGameObjectWithTag("Player").GetComponent<BoxCollider>().enabled = true;
-        return null;
     }
 }

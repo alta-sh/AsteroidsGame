@@ -28,10 +28,20 @@ public class SpawnManager : MonoBehaviour
 
     public IEnumerator SpawnAsteroid()
     {
-        while (true)
+        GameObject rocketObj = null;
+        try
+        {
+            rocketObj = GameObject.FindGameObjectWithTag("Rocket");
+        }
+        catch (System.Exception)
+        {
+
+            rocketObj = null;
+        }
+
+        while (rocketObj != null)
         {
             SpawnLocation wall = (SpawnLocation)UnityEngine.Random.Range(0, 4);
-            Debug.Log(wall.ToString());
 
             switch (wall)
             {
