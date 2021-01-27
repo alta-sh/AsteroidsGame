@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -50,6 +51,31 @@ public class Rocket : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Rotate(new Vector3(0, 0, 1) * (speed / 1.5f) * Time.deltaTime);
+        }
+
+        HandleWarping();
+    }
+
+    private void HandleWarping()
+    {
+        if (transform.position.x >= 9.08f)
+        {
+            transform.position = new Vector2(-9.08f, transform.position.y);
+        }
+        
+        if (transform.position.x <= -9.09f)
+        {
+            transform.position = new Vector2(9.07f, transform.position.y);
+        }
+
+        if (transform.position.y >= 5.35)
+        {
+            transform.position = new Vector2(transform.position.x, -5.18f);
+        }
+
+        if (transform.position.y <= -5.19f)
+        {
+            transform.position = new Vector2(transform.position.x, 5.34f);
         }
     }
 }
