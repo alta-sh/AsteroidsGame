@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4635458016847544362}
   - component: {fileID: 5168717904653898145}
-  - component: {fileID: -3070454271963942311}
   - component: {fileID: 1329967030470345192}
   - component: {fileID: 8498117018283516787}
+  - component: {fileID: 4491095667369678468}
   m_Layer: 0
   m_Name: Asteroid
   m_TagString: Untagged
@@ -73,9 +73,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 3625043607559282579, guid: 0d267bc78a0864eb48358689b29ed20a, type: 3}
-  m_Color: {r: 0.509434, g: 0.3496364, b: 0.12255251, a: 1}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300000, guid: 456dc15a70186c94d86b5f1f1e254cc8, type: 3}
+  m_Color: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -85,32 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &-3070454271963942311
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5694578009056374292}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.5}
-    newSize: {x: 1, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.5}
-  m_EdgeRadius: 0
 --- !u!114 &1329967030470345192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
+  miniAsteroids: {fileID: 5694578009056374292}
+  scoreText: {fileID: 4564866631960936916, guid: 671a8d8b7f3ee0c4396dc8e0d3afe96f, type: 3}
 --- !u!50 &8498117018283516787
 Rigidbody2D:
   serializedVersion: 4
@@ -145,3 +121,46 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!60 &4491095667369678468
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5694578009056374292}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.01, y: 0.84}
+    newSize: {x: 1, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.3648572, y: -0.24356516}
+      - {x: 0.4298254, y: -0.09855202}
+      - {x: 0.47215587, y: -0.03142014}
+      - {x: 0.49405196, y: 0.015680693}
+      - {x: 0.36003688, y: 0.20735633}
+      - {x: 0.28507674, y: 0.33170378}
+      - {x: 0.255, y: 0.42}
+      - {x: -0.3158052, y: 0.40927526}
+      - {x: -0.32850653, y: 0.40356514}
+      - {x: -0.45755848, y: 0.043565154}
+      - {x: -0.505, y: -0.109245844}
+      - {x: -0.38494834, y: -0.2179676}
+      - {x: -0.22675326, y: -0.39211544}
+      - {x: -0.17229868, y: -0.39426047}
+      - {x: 0.1077013, y: -0.29426047}
+      - {x: 0.23770127, y: -0.30779633}
+      - {x: 0.29911688, y: -0.31054482}
+      - {x: 0.3512078, y: -0.27637607}

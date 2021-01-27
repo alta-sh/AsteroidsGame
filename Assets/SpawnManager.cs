@@ -13,7 +13,7 @@ public enum SpawnLocation
 public class SpawnManager : MonoBehaviour
 {
     public GameObject Asteroid;
-
+    public float spawnSpeed = 3.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +41,13 @@ public class SpawnManager : MonoBehaviour
 
         while (rocketObj != null)
         {
+            if (GameObject.FindGameObjectWithTag("Rocket").GetComponent<Rocket>().score % 25 == 0)
+            {
+                if (spawnSpeed > 1f)
+                {
+                    spawnSpeed -= 0.5f;
+                }
+            }
             SpawnLocation wall = (SpawnLocation)UnityEngine.Random.Range(0, 4);
 
             switch (wall)
@@ -63,7 +70,7 @@ public class SpawnManager : MonoBehaviour
                     break;
             }
 
-            yield return new WaitForSeconds(3.5f);
+            yield return new WaitForSeconds(spawnSpeed);
         }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Rocket : MonoBehaviour
 {
@@ -13,6 +14,11 @@ public class Rocket : MonoBehaviour
     public GameObject bulletObject;
     public int health = 5;
     public bool isAlive = true;
+    public int score = 0;
+
+    [SerializeField]
+    private Text scoreText;
+
     void Start()
     {
         rigidbody = gameObject.GetComponent<Rigidbody2D>();
