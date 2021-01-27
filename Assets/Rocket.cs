@@ -6,6 +6,10 @@ public class Rocket : MonoBehaviour
 {
     private Rigidbody2D rigidbody;
     public float speed = 300.0f;
+
+    [SerializeField]
+    public GameObject bulletObject;
+
     void Start()
     {
         rigidbody = gameObject.GetComponent<Rigidbody2D>();
@@ -20,6 +24,11 @@ public class Rocket : MonoBehaviour
 
     private void HandleInput()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(bulletObject, new Vector2(transform.position.x, transform.position.y), transform.rotation);
+        }
+
         if (Input.GetKey(KeyCode.UpArrow))
         {
             if (Input.GetKey("up"))
