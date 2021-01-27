@@ -11,6 +11,7 @@ public class Rocket : MonoBehaviour
     public float fireTime;
     [SerializeField]
     public GameObject bulletObject;
+    public int health = 5;
 
     void Start()
     {
@@ -21,6 +22,10 @@ public class Rocket : MonoBehaviour
     void Update()
     {
         HandleInput();
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
 

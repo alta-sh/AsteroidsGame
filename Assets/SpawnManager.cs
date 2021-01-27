@@ -37,19 +37,19 @@ public class SpawnManager : MonoBehaviour
             {
                 case SpawnLocation.TOP_WALL:
                     Vector2 spawnLocationTop = new Vector2(UnityEngine.Random.Range(-2.0f, 2.0f), 6);
-                    Instantiate(Asteroid, spawnLocationTop, Quaternion.Euler(0, 0, 180));
+                    Instantiate(Asteroid, spawnLocationTop, Quaternion.Euler(0, 0, UnityEngine.Random.Range(160, 200)));
                     break;
                 case SpawnLocation.RIGHT_WALL:
                     Vector2 spawnLocationRight = new Vector2(10, UnityEngine.Random.Range(-3.0f, 3.0f));
-                    Instantiate(Asteroid, spawnLocationRight, Quaternion.Euler(0, 0, -270));
+                    Instantiate(Asteroid, spawnLocationRight, Quaternion.Euler(0, 0, UnityEngine.Random.Range(-250, -290)));
                     break;
                 case SpawnLocation.BOTTOM_WALL:
                     Vector2 spawnLocationBottom = new Vector2(UnityEngine.Random.Range(-2.0f, 2.0f), -6);
-                    Instantiate(Asteroid, spawnLocationBottom, Quaternion.Euler(0, 0, 0));
+                    Instantiate(Asteroid, spawnLocationBottom, Quaternion.Euler(0, 0, UnityEngine.Random.Range(-20, 20)));
                     break;
                 case SpawnLocation.LEFT_WALL:
                     Vector2 spawnLocationLeft = new Vector2(-10, UnityEngine.Random.Range(-3.0f, 3.0f));
-                    Instantiate(Asteroid, spawnLocationLeft, Quaternion.Euler(0, 0, -90));
+                    Instantiate(Asteroid, spawnLocationLeft, Quaternion.Euler(0, 0, UnityEngine.Random.Range(-70, -110)));
                     break;
             }
 
