@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,8 @@ public class Rocket : MonoBehaviour
 {
     private Rigidbody2D rigidbody;
     public float speed = 300.0f;
-
+    public float fireDelay = 0.5f;
+    public float fireTime;
     [SerializeField]
     public GameObject bulletObject;
 
@@ -24,9 +26,13 @@ public class Rocket : MonoBehaviour
 
     private void HandleInput()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Time.time > fireTime + fireDelay)
         {
-            Instantiate(bulletObject, new Vector2(transform.position.x, transform.position.y), transform.rotation);
+            if (Input.GetKey(KeyCode.Space))
+            {
+                fireTime = Time.time;
+                Instantiate(bulletObject, new Vector2(transform.position.x, transform.position.y), transform.rotation);
+            }
         }
 
         if (Input.GetKey(KeyCode.UpArrow))
@@ -45,6 +51,31 @@ public class Rocket : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Rotate(new Vector3(0, 0, 1) * (speed / 1.5f) * Time.deltaTime);
+        }
+
+        HandleWarping();
+    }
+
+    private void HandleWarping()
+    {
+        if (transform.position.x >= 9.08f)
+        {
+            transform.position = new Vector2(-9.08f, transform.position.y);
+        }
+        
+        if (transform.position.x <= -9.09f)
+        {
+            transform.position = new Vector2(9.07f, transform.position.y);
+        }
+
+        if (transform.position.y >= 5.35)
+        {
+            transform.position = new Vector2(transform.position.x, -5.18f);
+        }
+
+        if (transform.position.y <= -5.19f)
+        {
+            transform.position = new Vector2(transform.position.x, 5.34f);
         }
     }
 }
