@@ -14,7 +14,7 @@ public class Asteroid : MonoBehaviour
         rigidbody2D = GetComponent<Rigidbody2D>();
         rigidbody2D.AddForce(transform.up * speed);
         int ranResult = UnityEngine.Random.Range(0, 100); 
-        if (ranResult < 40) // 40% change of it being breakable
+        if (ranResult < 30) // 30% chance of it being breakable
         {
             isBreakable = true;
             transform.localScale = new Vector3(transform.localScale.x * 1.5f, transform.localScale.y * 1.5f, transform.localScale.z);
