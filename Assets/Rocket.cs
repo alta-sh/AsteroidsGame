@@ -6,7 +6,8 @@ public class Rocket : MonoBehaviour
 {
     private Rigidbody2D rigidbody;
     public float speed = 300.0f;
-
+    public float fireDelay = 0.5f;
+    public float fireTime;
     [SerializeField]
     public GameObject bulletObject;
 
@@ -24,9 +25,13 @@ public class Rocket : MonoBehaviour
 
     private void HandleInput()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Time.time > fireTime + fireDelay)
         {
-            Instantiate(bulletObject, new Vector2(transform.position.x, transform.position.y), transform.rotation);
+            if (Input.GetKey(KeyCode.Space))
+            {
+                fireTime = Time.time;
+                Instantiate(bulletObject, new Vector2(transform.position.x, transform.position.y), transform.rotation);
+            }
         }
 
         if (Input.GetKey(KeyCode.UpArrow))
